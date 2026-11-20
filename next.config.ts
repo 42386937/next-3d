@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
-  // transpilePackages: ['three'],
+  transpilePackages: ['three'],
   turbopack: {
     rules: {
       "*.css": {
