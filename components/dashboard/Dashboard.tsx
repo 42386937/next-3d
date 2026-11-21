@@ -6,6 +6,7 @@ import { LeftColumn } from "./LeftColumn";
 import { RightColumn } from "./RightColumn";
 import { CenterStage } from "./CenterStage";
 import { SceneMarkers } from "@/components/scene/SceneMarkers";
+import { SceneViewport } from "@/components/scene/SceneViewport";
 
 const DESIGN_WIDTH = 1920;
 const DESIGN_HEIGHT = 1080;
@@ -42,6 +43,8 @@ export function Dashboard() {
         }}
       >
         <div className="twin-backdrop absolute inset-0" />
+        <SceneViewport />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-twin-void/30" />
         <SceneMarkers />
 
         <div className="pointer-events-none relative z-10 flex h-full flex-col">

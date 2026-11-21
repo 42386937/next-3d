@@ -100,7 +100,7 @@ export const alarmTrend = {
 
 export const sceneTag = {
   location: "主生产区",
-  mode: "平面总览",
+  mode: "三维总览",
   badge: "DEMO",
 };
 
