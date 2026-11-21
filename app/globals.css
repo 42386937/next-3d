@@ -26,69 +26,67 @@
 
 :root,
 [data-theme="dark"] {
-  --t-bg: #030a17;
-  --t-deep: #061227;
-  --t-panel: #0a1c36;
-  --t-line: #12325a;
-  --t-edge: #1a4a7a;
-  --t-cyan: #35e0ff;
+  --t-bg: #04101e;
+  --t-deep: #071829;
+  --t-panel: #0a1f36;
+  --t-line: #16375c;
+  --t-edge: #1f5183;
+  --t-cyan: #38dcff;
   --t-blue: #3f8cff;
-  --t-green: #2ee6a8;
+  --t-green: #2fe6a8;
   --t-amber: #ffc53d;
-  --t-red: #ff5d5d;
-  --t-text: #dff1ff;
-  --t-muted: #7ea3c9;
-  --t-dim: #4a6d94;
+  --t-red: #ff5f5f;
+  --t-text: #e4f2ff;
+  --t-muted: #85a7cc;
+  --t-dim: #4c6f97;
 
-  --t-grid: rgba(53, 224, 255, 0.1);
-  --t-grid-soft: rgba(53, 224, 255, 0.06);
-  --t-corner: rgba(53, 224, 255, 0.6);
+  --t-grid: rgba(56, 220, 255, 0.1);
+  --t-grid-soft: rgba(56, 220, 255, 0.06);
   --t-glow-1: rgba(24, 92, 170, 0.4);
   --t-glow-2: rgba(12, 62, 112, 0.35);
-  --t-grid-line: rgba(53, 224, 255, 0.05);
-  --t-title-shadow: 0 0 12px rgba(53, 224, 255, 0.45);
-  --t-panel-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  --t-active-shadow: 0 0 14px rgba(53, 224, 255, 0.18);
+  --t-grid-line: rgba(56, 220, 255, 0.055);
+  --t-title-shadow: 0 0 12px rgba(56, 220, 255, 0.4);
+  --t-panel-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --t-active-shadow: 0 0 14px rgba(56, 220, 255, 0.18);
   --t-bar-top: #5eeaff;
   --t-bar-bottom: #1f6fd0;
   --t-dot-fill: #04101f;
-  --t-ring-track: rgba(26, 74, 122, 0.5);
-  --t-ring-dash: rgba(53, 224, 255, 0.16);
-  --t-ring-inner: rgba(53, 224, 255, 0.25);
+  --t-ring-track: rgba(31, 81, 131, 0.5);
+  --t-ring-dash: rgba(56, 220, 255, 0.16);
+  --t-ring-inner: rgba(56, 220, 255, 0.25);
 
   color-scheme: dark;
 }
 
 [data-theme="light"] {
-  --t-bg: #eaeff6;
-  --t-deep: #f5f8fc;
+  --t-bg: #e9eef5;
+  --t-deep: #f6f9fd;
   --t-panel: #ffffff;
-  --t-line: #e2e9f2;
-  --t-edge: #d2dcea;
-  --t-cyan: #2f80ed;
-  --t-blue: #2f80ed;
-  --t-green: #17b8a0;
-  --t-amber: #f5a623;
-  --t-red: #f05252;
+  --t-line: #e4eaf3;
+  --t-edge: #d3ddeb;
+  --t-cyan: #2b7cf0;
+  --t-blue: #2b7cf0;
+  --t-green: #12b8a2;
+  --t-amber: #f39c12;
+  --t-red: #ef4444;
   --t-text: #16283f;
-  --t-muted: #5d708a;
-  --t-dim: #97a7bd;
+  --t-muted: #5f7288;
+  --t-dim: #9aa9bd;
 
-  --t-grid: rgba(22, 40, 63, 0.09);
-  --t-grid-soft: rgba(22, 40, 63, 0.05);
-  --t-corner: rgba(47, 128, 237, 0.3);
-  --t-glow-1: rgba(255, 255, 255, 0.85);
-  --t-glow-2: rgba(206, 222, 244, 0.7);
-  --t-grid-line: rgba(47, 128, 237, 0.06);
+  --t-grid: rgba(22, 40, 63, 0.08);
+  --t-grid-soft: rgba(22, 40, 63, 0.045);
+  --t-glow-1: rgba(255, 255, 255, 0.9);
+  --t-glow-2: rgba(203, 220, 242, 0.75);
+  --t-grid-line: rgba(43, 124, 240, 0.055);
   --t-title-shadow: none;
-  --t-panel-shadow: 0 10px 28px rgba(23, 43, 77, 0.1);
-  --t-active-shadow: 0 2px 8px rgba(47, 128, 237, 0.16);
+  --t-panel-shadow: 0 12px 28px rgba(23, 43, 77, 0.1);
+  --t-active-shadow: 0 2px 8px rgba(43, 124, 240, 0.16);
   --t-bar-top: #4a9bff;
   --t-bar-bottom: #b7d4f8;
   --t-dot-fill: #ffffff;
   --t-ring-track: #e8eef7;
-  --t-ring-dash: rgba(47, 128, 237, 0.2);
-  --t-ring-inner: rgba(47, 128, 237, 0.22);
+  --t-ring-dash: rgba(43, 124, 240, 0.2);
+  --t-ring-inner: rgba(43, 124, 240, 0.22);
 
   color-scheme: light;
 }
@@ -106,10 +104,11 @@ body {
   font-family: var(--font-geist-sans), "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
-/* Screen-space glow plus a faint engineering grid, so the empty scene still reads as a stage. */
+/* Screen-space glow plus a faint engineering grid, so the stage reads as a place rather than a gap. */
 .twin-backdrop {
   background:
     radial-gradient(1100px 520px at 50% -8%, var(--t-glow-1), transparent 70%),
+    radial-gradient(760px 460px at 50% 52%, var(--t-glow-2), transparent 72%),
     radial-gradient(900px 480px at 50% 108%, var(--t-glow-2), transparent 72%),
     var(--t-bg);
 }
@@ -121,8 +120,8 @@ body {
   background-image:
     linear-gradient(var(--t-grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--t-grid-line) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(70% 60% at 50% 45%, #000 35%, transparent 100%);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(72% 62% at 50% 48%, #000 40%, transparent 100%);
 }
 
 .twin-num {

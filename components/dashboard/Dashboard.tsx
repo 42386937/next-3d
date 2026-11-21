@@ -5,7 +5,6 @@ import { TopHeader } from "./TopHeader";
 import { LeftColumn } from "./LeftColumn";
 import { RightColumn } from "./RightColumn";
 import { CenterStage } from "./CenterStage";
-import { SceneViewport } from "@/components/scene/SceneViewport";
 import { SceneMarkers } from "@/components/scene/SceneMarkers";
 
 const DESIGN_WIDTH = 1920;
@@ -43,7 +42,6 @@ export function Dashboard() {
         }}
       >
         <div className="twin-backdrop absolute inset-0" />
-        <SceneViewport />
         <SceneMarkers />
 
         <div className="pointer-events-none relative z-10 flex h-full flex-col">
@@ -51,7 +49,7 @@ export function Dashboard() {
             theme={theme}
             onToggleTheme={() => setTheme(theme === "dark" ? "light" : "dark")}
           />
-          <div className="flex min-h-0 flex-1 gap-4 px-4 pb-4 pt-1">
+          <div className="flex min-h-0 flex-1 gap-4 px-4 pb-9 pt-1 mt-[24px]">
             <LeftColumn />
             <CenterStage />
             <RightColumn />
