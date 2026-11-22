@@ -5,7 +5,6 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import * as THREE from "three";
 import { buildRoadPath, sampleRoad, ROAD_SURFACE_Y } from "@/lib/scene-path";
-
 const CAR_URL = "/car.glb";
 
 /**
