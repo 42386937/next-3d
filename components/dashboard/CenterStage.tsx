@@ -1,17 +1,26 @@
 "use client";
 
-import { useState } from "react";
 import { Icon, IconChip } from "@/components/ui/Icon";
 import { bottomKpis, sceneTag, viewToolbar } from "@/lib/dashboard-data";
+import type { SceneViewKey } from "@/lib/dashboard-data";
 
-function SceneTag() {
+/** Label shown next to the scene tag for each view. */
+const VIEW_LABELS: Record<SceneViewKey, string> = {
+  reset: "三维总览",
+  road: "司机视角 · 沿道路行驶",
+  orbit: "三维总览 · 自动环绕",
+  follow: "跟随车辆 · 沿道路行驶",
+  flythrough: "园区穿梭",
+};
+
+function SceneTag({ view }: { view: SceneViewKey }) {
   return (
     <div className="pointer-events-auto flex items-center gap-2 rounded-[8px] border border-twin-line/70 bg-twin-panel/80 px-3 py-2 shadow-[var(--t-panel-shadow)] backdrop-blur-md">
       <span className="h-1.5 w-1.5 rounded-full bg-twin-green shadow-[0_0_6px_var(--t-green)]" />
       <span className="text-[13px] text-twin-text">
         {sceneTag.location}
         <span className="mx-1.5 text-twin-dim">·</span>
-        {sceneTag.mode}
+        {VIEW_LABELS[view]}
       </span>
       <span className="rounded-[4px] border border-twin-edge/60 px-1.5 py-px text-[10px] tracking-[0.08em] text-twin-dim">
         {sceneTag.badge}
@@ -24,8 +33,8 @@ function ViewToolbar({
   active,
   onSelect,
 }: {
-  active: string;
-  onSelect: (key: string) => void;
+  active: SceneViewKey;
+  onSelect: (key: SceneViewKey) => void;
 }) {
   return (
     <div className="pointer-events-auto flex items-center gap-2">
@@ -36,6 +45,7 @@ function ViewToolbar({
             key={tool.key}
             type="button"
             onClick={() => onSelect(tool.key)}
+            aria-pressed={on}
             className={`flex h-9 items-center gap-2 rounded-[7px] border px-3.5 text-[13px] backdrop-blur-md transition-colors ${
               on
                 ? "border-twin-cyan/50 bg-twin-cyan/12 text-twin-cyan shadow-[var(--t-active-shadow)]"
@@ -77,14 +87,18 @@ function KpiBar() {
   );
 }
 
-export function CenterStage() {
-  const [view, setView] = useState("reset");
-
+export function CenterStage({
+  view,
+  onViewChange,
+}: {
+  view: SceneViewKey;
+  onViewChange: (view: SceneViewKey) => void;
+}) {
   return (
     <div className="pointer-events-none relative flex min-w-0 flex-1 flex-col">
       <div className="flex items-start justify-between">
-        <SceneTag />
-        <ViewToolbar active={view} onSelect={setView} />
+        <SceneTag view={view} />
+        <ViewToolbar active={view} onSelect={onViewChange} />
       </div>
       <div className="mt-auto">
         <KpiBar />

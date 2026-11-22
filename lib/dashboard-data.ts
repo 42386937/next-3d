@@ -104,7 +104,14 @@ export const sceneTag = {
   badge: "DEMO",
 };
 
-export const viewToolbar: { key: string; label: string; icon: IconName }[] = [
+/** View modes the 3D stage understands, in toolbar order. */
+export type SceneViewKey = "reset" | "road" | "orbit" | "follow" | "flythrough";
+
+export const viewToolbar: {
+  key: SceneViewKey;
+  label: string;
+  icon: IconName;
+}[] = [
   { key: "reset", label: "恢复总览", icon: "tool-reset" },
   { key: "road", label: "沿道路行驶", icon: "tool-road" },
   { key: "orbit", label: "自动环绕", icon: "tool-orbit" },

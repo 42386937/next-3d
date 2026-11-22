@@ -7,6 +7,7 @@ import { RightColumn } from "./RightColumn";
 import { CenterStage } from "./CenterStage";
 import { SceneMarkers } from "@/components/scene/SceneMarkers";
 import { SceneViewport } from "@/components/scene/SceneViewport";
+import type { SceneViewKey } from "@/lib/dashboard-data";
 
 const DESIGN_WIDTH = 1920;
 const DESIGN_HEIGHT = 1080;
@@ -14,6 +15,7 @@ const DESIGN_HEIGHT = 1080;
 export function Dashboard() {
   const [scale, setScale] = useState(1);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [view, setView] = useState<SceneViewKey>("reset");
 
   useEffect(() => {
     const fit = () => {
@@ -43,9 +45,10 @@ export function Dashboard() {
         }}
       >
         <div className="twin-backdrop absolute inset-0" />
-        <SceneViewport />
+        <SceneViewport view={view} />
         <div className="pointer-events-none absolute inset-0 z-[1] bg-twin-void/30" />
-        <SceneMarkers />
+        {/* POI labels are pinned to the overview layout, so they sit out rig views. */}
+        {view === "reset" || view === "orbit" ? <SceneMarkers /> : null}
 
         <div className="pointer-events-none relative z-10 flex h-full flex-col">
           <TopHeader
@@ -54,7 +57,7 @@ export function Dashboard() {
           />
           <div className="flex min-h-0 flex-1 gap-4 px-4 pb-9 pt-1 mt-[24px]">
             <LeftColumn />
-            <CenterStage />
+            <CenterStage view={view} onViewChange={setView} />
             <RightColumn />
           </div>
         </div>
